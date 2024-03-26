@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import {FacebookIcon } from "@/components/icons"
 
 
 /* 
@@ -107,7 +108,7 @@ export default function CurriculumForm() {
         />
 
 
-          <
+          <FacebookIcon />
 
         <Button type="submit">Submit</Button>
       </form>
