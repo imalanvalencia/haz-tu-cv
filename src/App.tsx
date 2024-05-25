@@ -1,6 +1,7 @@
 import "./App.css";
 import Education from "./components/education";
 import Experience from "./components/experience";
+import MoreData from "./components/more-data";
 import PersonalData from "./components/personal-data";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <PersonalData />
       <Experience />
       <Education />
+      <MoreData />
     </main>
   );
 }
