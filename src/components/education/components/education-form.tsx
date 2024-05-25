@@ -127,7 +127,7 @@ export default function EducationForm({ addEducation }: Props) {
               <FormItem>
                 <FormLabel>Fecha de inicio</FormLabel>
                 <FormControl>
-                  <Input type="date" placeholder="26/09/2016" {...field} />
+                  <Input type="month" placeholder="09/2016" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -141,7 +141,7 @@ export default function EducationForm({ addEducation }: Props) {
               <FormItem>
                 <FormLabel>Fecha de fin</FormLabel>
                 <FormControl>
-                  <Input type="date" placeholder="26/09/2016" {...field} />
+                  <Input type="month" placeholder="09/2016" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

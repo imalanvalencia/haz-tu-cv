@@ -42,7 +42,7 @@ export function HardSkillsForm() {
       id: crypto.randomUUID(),
     };
 
-    setHardSkills([...hardSkills, hardSkillParse]);
+    setHardSkills((prevHardSkills) => [...prevHardSkills, hardSkillParse]);
   };
 
   return (

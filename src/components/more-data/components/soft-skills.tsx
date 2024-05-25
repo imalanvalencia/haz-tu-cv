@@ -32,7 +32,7 @@ export function SoftSkillsForm() {
       id: crypto.randomUUID(),
     };
 
-    setSoftSkills([...softSkills, softSkillParse]);
+    setSoftSkills((prevSoftSkills) => [...prevSoftSkills, softSkillParse]);
   };
 
   const removeSoftSkill = (id: string) => {

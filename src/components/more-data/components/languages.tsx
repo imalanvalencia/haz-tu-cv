@@ -50,7 +50,7 @@ export function LanguagesForm() {
       id: crypto.randomUUID(),
     };
 
-    setLanguages([...languages, languageParse]);
+    setLanguages((prevLanguages) => [...prevLanguages, languageParse]);
   };
 
   return (

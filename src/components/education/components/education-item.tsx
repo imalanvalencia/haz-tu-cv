@@ -1,3 +1,4 @@
+import { formatDate } from "@/lib/date";
 import { TEducationState } from "../types";
 
 interface Props extends TEducationState {
@@ -12,11 +13,15 @@ export function EducationItem({
   center,
   ...restProps
 }: Props) {
-  let date = `${dateStart} - ${dateEnd}`;
+  const dateStartFormated = formatDate(dateStart);
+  const dateEndFormated = dateEnd && formatDate(dateEnd);
+
+  let date = `${dateStartFormated} - ${dateEndFormated}`;
   if (currentlyStudy) {
-    date = `${dateStart} - Actualmente`;
-    return;
+    date = `${dateStartFormated} - Actualmente`;
+    console.log("currentlyStudy", date);
   }
+
   return (
     <div
       className="flex justify-between rounded-md border px-4 py-3 font-semibold font-mono text-sm text-left"
@@ -24,10 +29,10 @@ export function EducationItem({
     >
       <div>
         <h5>{name}</h5>
-        <p className="text-xs font-normal">{center}</p>
+        <span className="capitalize">{date}</span>
       </div>
 
-      <span>{date}</span>
+      <p className="text-sm font-normal capitalize">{center}</p>
     </div>
   );
 }

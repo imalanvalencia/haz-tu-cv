@@ -25,6 +25,33 @@ export default function Education() {
       center: "Sena",
       id: crypto.randomUUID(),
     },
+    {
+      name: "Auxiliar de comercio",
+      type: "complementary",
+      dateStart: new Date("2021"),
+      dateEnd: new Date("2022"),
+      currentlyStudy: false,
+      center: "Sena",
+      id: crypto.randomUUID(),
+    },
+    {
+      name: "Auxiliar de comercio",
+      type: "complementary",
+      dateStart: new Date("2023"),
+      dateEnd: new Date("2021"),
+      currentlyStudy: false,
+      center: "Sena",
+      id: crypto.randomUUID(),
+    },
+    {
+      name: "Auxiliar de comercio",
+      type: "complementary",
+      dateStart: new Date("2020"),
+      dateEnd: undefined,
+      currentlyStudy: true,
+      center: "Sena",
+      id: crypto.randomUUID(),
+    },
   ]);
 
   const educationFormal = educations
@@ -34,7 +61,17 @@ export default function Education() {
         ...education,
       };
     })
-    .sort((edu, nextEdu) => edu.dateStart - nextEdu.dateStart);
+    .sort((a, b) => {
+      if (a.dateEnd && b.dateEnd) {
+        return a.dateEnd.getTime() - b.dateEnd.getTime();
+      } else if (a.dateEnd && !b.dateEnd) {
+        return 1;
+      } else if (!a.dateEnd && b.dateEnd) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
 
   const [lastEducationFormal, restOfEducationsFormal] =
     getLastItem(educationFormal);
@@ -46,14 +83,20 @@ export default function Education() {
         ...education,
       };
     })
-    .sort((edu, nextEdu) => edu.dateStart - nextEdu.dateStart);
+    .sort((a, b) => {
+      if (a.dateEnd && b.dateEnd) {
+        return a.dateEnd.getTime() - b.dateEnd.getTime();
+      } else if (a.dateEnd && !b.dateEnd) {
+        return 1;
+      } else if (!a.dateEnd && b.dateEnd) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
 
-  const lastEducationComplementary =
-    educationComplementary[educationComplementary.length - 1] ?? null;
-  const restOfEducationsComplementary = educationComplementary.slice(
-    0,
-    educationComplementary.length - 1
-  );
+  const [lastEducationComplementary, restOfEducationsComplementary] =
+    getLastItem(educationComplementary);
 
   return (
     <div>
@@ -68,7 +111,7 @@ export default function Education() {
         >
           <EducationForm
             addEducation={(education) =>
-              setEducations([...educations, education])
+              setEducations((prevEducations) => [...prevEducations, education])
             }
           />
         </PopUp>

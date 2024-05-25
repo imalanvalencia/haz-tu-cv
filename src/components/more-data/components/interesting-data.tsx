@@ -50,7 +50,10 @@ export function InterestingDataForm() {
       id: crypto.randomUUID(),
     };
 
-    setInterestingData([...interestingData, interestingDataParse]);
+    setInterestingData((prevInterestingData) => [
+      ...prevInterestingData,
+      interestingDataParse,
+    ]);
   };
 
   return (
