@@ -88,7 +88,7 @@ export function HardSkillsForm() {
       >
         <div className="flex items-center justify-between space-x-4 px-4">
           <h4 className="text-sm font-semibold">
-            Tienes {hardSkills.length} formaciones regladas
+            Tienes {hardSkills.length} Habilidades Profesionales
           </h4>
           <CollapsibleTrigger asChild>
             <Button variant="ghost" size="sm" className="w-9 p-0">
