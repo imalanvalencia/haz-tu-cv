@@ -39,3 +39,15 @@ export const TLanguageFormSchema = z.object({
 export declare type TLanguage = z.infer<typeof TLanguageFormSchema>;
 
 export declare type TLanguageParse = TLanguage & TId;
+
+export const TInterestingDataFormSchema = z.object({
+  interestingData: z.string().min(2, {
+    message: "La habilidad profesional deberia ser de al menos 2 caracteres",
+  }),
+});
+
+export declare type TInterestingData = z.infer<
+  typeof TInterestingDataFormSchema
+>;
+
+export declare type TInterestingDataParse = TInterestingData & TId;

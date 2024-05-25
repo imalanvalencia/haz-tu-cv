@@ -1,6 +1,7 @@
 import { HardSkillsForm } from "./components/hard-skills";
 import { SoftSkillsForm } from "./components/soft-skills";
 import { LanguagesForm } from "./components/languages";
+import { InterestingDataForm } from "./components/interesting-data";
 
 export default function MoreData() {
   return (
@@ -12,6 +13,7 @@ export default function MoreData() {
       <h2>Idiomas</h2>
       <LanguagesForm />
       <h2>Otros datos de interes</h2>
+      <InterestingDataForm />
     </>
   );
 }
