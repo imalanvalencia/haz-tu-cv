@@ -17,7 +17,7 @@ import {
   Collapsible,
   CollapsibleTrigger,
   CollapsibleContent,
-} from "@radix-ui/react-collapsible";
+} from "@/components/ui/collapsible";
 import { ChevronsUpDown } from "lucide-react";
 import { THardSkill, THardSkillFormSchema, THardSkillParse } from "../types";
 import { getLastItem } from "@/lib/utils";
@@ -28,8 +28,6 @@ export function HardSkillsForm() {
   const [isOpen, setIsOpen] = useState(false);
 
   const [lastHardSkill, restOfHardsSkills] = getLastItem(hardSkills);
-
-  console.log(lastHardSkill, restOfHardsSkills);
 
   const form = useForm<THardSkill>({
     resolver: zodResolver(THardSkillFormSchema),

@@ -19,8 +19,6 @@ import { SoftSkillItem } from "./soft-skill-item";
 export function SoftSkillsForm() {
   const [softSkills, setSoftSkills] = useState<TSoftSkillParse[]>([]);
 
-  console.log(softSkills);
-
   const form = useForm<TSoftSkill>({
     resolver: zodResolver(TSoftSkillFormSchema),
     defaultValues: {
