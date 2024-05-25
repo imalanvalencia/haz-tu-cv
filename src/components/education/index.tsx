@@ -7,9 +7,10 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { PopUp } from "@/components/ui/pop-up";
-import { EducationItem } from "./components/EducationItem";
+import { EducationItem } from "./components/education-item";
 import EducationForm from "./components/education-form";
 import { TEducationState } from "./types";
+import { getLastItem } from "@/lib/utils";
 
 export default function Education() {
   const [isOpen1, setIsOpen1] = useState(false);
@@ -35,12 +36,8 @@ export default function Education() {
     })
     .sort((edu, nextEdu) => edu.dateStart - nextEdu.dateStart);
 
-  const lastEducationFormal =
-    educationFormal[educationFormal.length - 1] ?? null;
-  const restOfEducationsFormal = educationFormal.slice(
-    0,
-    educationFormal.length - 1
-  );
+  const [lastEducationFormal, restOfEducationsFormal] =
+    getLastItem(educationFormal);
 
   const educationComplementary = educations
     .filter((education) => {
@@ -100,7 +97,7 @@ export default function Education() {
           )}
         </div>
         <CollapsibleContent className="space-y-2">
-          {restOfEducationsFormal.map((edu) => (
+          {restOfEducationsFormal?.map((edu) => (
             <EducationItem {...edu} />
           ))}
         </CollapsibleContent>
